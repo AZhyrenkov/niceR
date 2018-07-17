@@ -1,3 +1,4 @@
+# killMySQLConnections - Kill all MySQL Connections
 killMySQLConnections <- function () {
   require(RMySQL)
   all_cons <- dbListConnections(MySQL())
@@ -12,7 +13,7 @@ killMySQLConnections <- function () {
 }
 
 
-# write data to db chunks ----
+# write_data_redshift write data to db chunks ----
 write_data_redshift <- function(con,df,name, chunk = 100000){
   require(dplyr)
   name <- as.character(name)

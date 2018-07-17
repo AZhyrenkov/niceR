@@ -1,5 +1,3 @@
-
-
 # Function for calculating biatlon by inputted columns
 make_biatlon <- function(dataset,columns,base_column){
   # @dataset: Interested DataFrame
