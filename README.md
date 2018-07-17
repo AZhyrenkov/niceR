@@ -20,8 +20,6 @@ Few nice functions for every-day use
 ```library(niceR)``` 
 
 ## Strings:
-***
-
 ### Concatenate string `x` and `y`.
 
 `x %+% y` 
