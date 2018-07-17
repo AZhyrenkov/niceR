@@ -161,7 +161,7 @@ distribution_result <- distribution$distribution_result
 ### Distribution with precalculated volumes 
 
 ```R
-# distribution <- distribute(pool_ds,capacity = capacity)
+distribution <- distribute(pool_ds,capacity = capacity)
 ```
  
 ## Error logging
