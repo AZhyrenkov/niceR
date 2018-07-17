@@ -2,7 +2,6 @@
 Few nice functions for every-day use
 
 ## Download and Install
-
 * Install [devtools](https://github.com/hadley/devtools) package
 
 ```install.packages("devtools")```
@@ -20,17 +19,14 @@ Few nice functions for every-day use
 ```library(niceR)``` 
 
 ## Strings:
-### Concatenate string `x` and `y`.
-
+### Concatenate strings
 `x %+% y` 
 
 
 ### Read sql query from file
-
 Only one query per file. 
 
 `read_query(path)` - read single query. 
- 
  
 Read all queries from `sql` directory and execute them: 
 ```R
@@ -50,10 +46,9 @@ all_data <- tibble(queries) %>%
 ```
 
 ## Databases:
-
 ### Kill all MySQL Connections.
 
-`killMySQLConnections()` 
+`killMySQLConnections()` - will print all open connections and close them.
 
  
 ### Write data to redshift db by chunks
@@ -68,8 +63,6 @@ all_data <- tibble(queries) %>%
 
 ### Read data from database by chunks
 
-`read_data()`
-
 `read_data(con,chunk = 100000, table, order_column = 'Id')`
 
 * _con_ - DBI formal class database connection (RMySQL, RPostgreSQL)
@@ -79,12 +72,9 @@ all_data <- tibble(queries) %>%
 
  
 ### Copy data from one DB to anoother by chunks
-
-`copy_data()`
-
 Copy data from DBI-formal-class connection database (tested with MySQL) to redshift by chunks
-`copy_data(redshift, mysql, from_table, to_table, chunk = 100000, order_column = 'Id', rewrite = T, test = F)`
 
+`copy_data(redshift, mysql, from_table, to_table, chunk = 100000, order_column = 'Id', rewrite = T, test = F)`
 * _redshift_ - RPostgreSQL formal class database connection? Targeted database
 * _mysql_ - DBI formal class database connection (RMySQL, RPostgreSQL), source database
 * _to_table_ - string with final table name
@@ -93,23 +83,23 @@ Copy data from DBI-formal-class connection database (tested with MySQL) to redsh
 * _rewrite_ - If `False` will append data to existing table
 * _test_ - If `TRUE` will be limited to 3 iterations 
 
+
 ## Biathlon(financial pattern retentions):
-
 ### groupby-summarise function
-
 Thanks to [lxii](https://github.com/lxii) for contribution!
 
-`getBiathlon(x, length)` 
+Note: Dataset in tidy format, months must be factor variables. If not, run something like this:
+`mutate(x, month = factor(month, levels = c('Feb', 'Mar', 'Apr', 'May'), ordered = T)`
 
+Using:
+`getBiathlon(x, length)` 
 * _x_ - the month or time period factor variable
 * _length_ - the number of periods to build the biathlon for 
 
 ### Add financial pattern column to dataset 
-
 Note: monthly data must be in columns 
 
 `make_biatlon <- (dataset,columns,base_column)` 
-
 * _dataset_ - input dataframe
 * _columns_ - vector with strings names of montly data. Without NAs
 * _base_column_ - column to compare with.
