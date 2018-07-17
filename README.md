@@ -5,23 +5,19 @@ Few nice functions for every-day use
 
 * Install [devtools](https://github.com/hadley/devtools) package
 
-```R
-install.packages("devtools")```
+```install.packages("devtools")```
 
 * Load the `devtools` package
 
-```R
-library(devtools)```
+```library(devtools)```
 
 * Install package
 
-```R
-install_github("AZhyrenkov/niceR")```
+```install_github("AZhyrenkov/niceR")```
 
 * Load package
 
-```R
-library(niceR)``` 
+```library(niceR)``` 
 
 ## Strings:
 ***
