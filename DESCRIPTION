@@ -4,7 +4,7 @@ Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Oleksii Zhyrenkov
 Maintainer: The package maintainer <ozhyrenkov@gmail.com>
-Description: More about what it does (maybe more than one line)
+Description: Few useful functions for dates arrangementm working with strings and (especially!) databases (copy from-to, read by chunks, write by chunks etc).
     Use four spaces when indenting paragraphs within the Description.
 License: GPL-3.0
 Encoding: UTF-8
