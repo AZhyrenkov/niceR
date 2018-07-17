@@ -1,5 +1,4 @@
 # niceR
-***
 Few nice functions for every-day use
 
 ## Download and Install
@@ -30,15 +29,14 @@ library(niceR)```
 ### Concatenate string `x` and `y`.
 
 `x %+% y` 
- \
- \ 
+
 
 ### Read sql query from file
 
-Only one query per file. \
+Only one query per file. 
 
-`read_query(path)` - read single query. \
- \
+`read_query(path)` - read single query. 
+ 
  
 Read all queries from `sql` directory and execute them: 
 ```R
@@ -58,11 +56,11 @@ all_data <- tibble(queries) %>%
 ```
 
 ## Databases:
-***
+
 ### Kill all MySQL Connections.
 
-`killMySQLConnections()` \
- \ 
+`killMySQLConnections()` 
+
  
 ### Write data to redshift db by chunks
 
@@ -71,8 +69,8 @@ all_data <- tibble(queries) %>%
 * _con_ - RPostgreSQL formal class database connection
 * _df_ - dataframe with data to write
 * _name_ - Name of targeted table (will be overwritten)
-* _chunk_ -  chunk-size, default 100000 \
- \ 
+* _chunk_ -  chunk-size, default 100000 
+
 
 ### Read data from database by chunks
 
@@ -83,8 +81,8 @@ all_data <- tibble(queries) %>%
 * _con_ - DBI formal class database connection (RMySQL, RPostgreSQL)
 * _table_ - string with table to read name
 * _order_column_ - Name of Primary key to sort during splitting by chunks, must be unique.
-* _chunk_ -  chunk-size, default 100000 \
- \ 
+* _chunk_ -  chunk-size, default 100000 
+
  
 ### Copy data from one DB to anoother by chunks
 
@@ -98,12 +96,11 @@ Copy data from DBI-formal-class connection database (tested with MySQL) to redsh
 * _to_table_ - string with final table name
 * _order_column_ - Name of Primary key to sort during splitting by chunks, must be unique.
 * _chunk_ -  chunk-size, default 100000
-* _rewrite_ - If `False` will ap[end data to existing table
-* _test_ - If `TRUE` will be limited to 3 iterations \
- \ 
+* _rewrite_ - If `False` will append data to existing table
+* _test_ - If `TRUE` will be limited to 3 iterations 
 
 ## Biathlon(financial pattern retentions):
-***
+
 ### groupby-summarise function
 
 Thanks to [lxii](https://github.com/lxii) for contribution!
@@ -111,12 +108,11 @@ Thanks to [lxii](https://github.com/lxii) for contribution!
 `getBiathlon(x, length)` 
 
 * _x_ - the month or time period factor variable
-* _length_ - the number of periods to build the biathlon for \
- \
+* _length_ - the number of periods to build the biathlon for 
 
 ### Add financial pattern column to dataset 
 
-Note: monthly data must be in columns \
+Note: monthly data must be in columns 
 
 `make_biatlon <- (dataset,columns,base_column)` 
 
@@ -125,16 +121,13 @@ Note: monthly data must be in columns \
 * _base_column_ - column to compare with.
 
 Example:
-`make_biatlon(ds,month_range$MYM[1:4],threshold)` \
- \ 
+`make_biatlon(ds,month_range$MYM[1:4],threshold)` 
  
 ### Calculate retentioans by financial pattern segments
 `get_retentions(biathlon)`
-* _biathlon_ - vector with all finpattern data \
- \ 
+* _biathlon_ - vector with all finpattern data 
 
 ## Distribution of rows by groups:
-***
 ### Distribution by all available items
 
 `pool_ds` consist of two columns: 
@@ -165,7 +158,6 @@ distribution <- distribute(pool_ds,capacity = capacity)
 ```
  
 ## Error logging
-***
 Log errors and warnings to slack channel.
 
 Thanks to [lxii](https://github.com/lxii) for contribution!
