@@ -63,3 +63,28 @@ write.spreadsheet <- function(data, token, ss_key, sheet, cell, last_rows_path, 
   # write lastrows
   cat(nrow(data), file = last_rows_path)
 }
+
+
+
+gs_clear_cloumn <- function(token, ss_key, sheet, start_cell, rows){
+
+  require(googlesheets)
+  require(dplyr)
+  require(stringr)
+  require(foreach)
+
+  sheet <-  as.character(sheet)
+
+  # auth by token
+  gs_auth(token = token)
+
+  # initialize spreadsheet object
+  ss <- gs_key(ss_key)
+
+  # generate empty dataset for cleaning
+  empty_df <- as.data.frame(matrix('', nrow = rows, ncol = 1))
+
+
+  # clear column
+  gs_edit_cells(ss = ss, ws = sheet, input = empty_df, anchor = start_cell, col_names = F, byrow = F)
+}
