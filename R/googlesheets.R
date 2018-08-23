@@ -1,4 +1,4 @@
-write.spreadsheet <- function(data, token, ss_key, sheet, cell, last_rows_path, col_names = F, verbose = T){
+write.spreadsheet <- function(data, token, ss_key, sheet, cell, last_rows_path, col_names = T, verbose = T){
 
   require(googlesheets)
   require(dplyr)
