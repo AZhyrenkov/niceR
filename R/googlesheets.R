@@ -66,7 +66,7 @@ write.spreadsheet <- function(data, token, ss_key, sheet, cell, last_rows_path, 
 
 
 
-gs_clear_cloumn <- function(token, ss_key, sheet, start_cell, rows){
+gs_clear_column <- function(token, ss_key, sheet, start_cell, rows){
 
   require(googlesheets)
   require(dplyr)
