@@ -31,8 +31,9 @@ write.spreadsheet <- function(data, token, ss_key, sheet, cell, last_rows_path, 
     system.time({
       for(i in 1:length(colnames(df))){
         col <- colnames(df)[i]
+        col_vector <- c(colnames(df)[i], as.character(df[, i]))
         anchor <- paste0(col_area_letters[i],start_number)
-        gs_edit_cells(ss = ss, ws = sheet, input = as.vector(df[, col]), anchor = anchor, col_names = col_names, verbose = verbose, byrow = F)
+        gs_edit_cells(ss = ss, ws = sheet, input = col_vector, anchor = anchor, col_names = T, byrow = F)
       }
     })
   }
