@@ -1,5 +1,5 @@
 days_in_month <- function(date){
-  require(lubridate) <-
+  require(lubridate)
     day(floor_date(as.Date(date),'month') + months(1) - days(1))
 }
 
