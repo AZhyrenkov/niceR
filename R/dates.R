@@ -4,20 +4,15 @@ days_in_month <- function(date){
 }
 
 
-get_month_range <- function(months = 4, daysStartBefore = 1, fromDate = NA, toDate = NA){
+get_month_range <- function(months_n = 5, daysStartBefore = 1){
   require(lubridate)
   require(dplyr)
   # set month-range for queries and further calculation
 
-  mindate <- floor_date(Sys.Date() - days(daysStartBefore), "month") - months(months)
+  mindate <- floor_date(Sys.Date() - days(daysStartBefore), "month") - months(months_n-1)
   lastdate <- floor_date(Sys.Date() - days(daysStartBefore), "month")
 
-  if (!is.na(fromDate) & !is.na(toDate)){
-    mindate <- floor_date(as.Date(fromDate), "month")
-    lastdate <- floor_date(as.Date(toDate), "month")
-  }
-
-  month_range <- tibble(
+    month_range <- tibble(
     YM01 = as.Date(seq(mindate, lastdate,by = 'month')),
     YM = format(YM01, format='%Y-%m'),
     M = month(YM01),
